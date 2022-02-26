@@ -8,15 +8,17 @@
       $password = "";
       $dbname = "sistema_facturacion";
 
-      $this->connection = new mysqli($servername, $username, $password, $dbname);
+      $this->connection = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
 
-      if ($this->connection->connect_error) {
-        throw new Exception($this->connection->connect_error);
-      }
+      $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      $this->connection->exec("SET CHARACTER SET UTF8");
     }
 
     public function delete($query) {
-      $result = $this->connection->query($query);
+      $result = $this->connection->prepare($query);
+
+      $result->execute();
 
       if (!$result) {
         throw new Exception($this->connection->error);
@@ -26,7 +28,9 @@
     }
 
     public function update($query) {
-      $result = $this->connection->query($query);
+      $result = $this->connection->prepare($query);
+
+      $result->execute();
 
       if (!$result) {
         throw new Exception($this->connection->error);
@@ -36,7 +40,9 @@
     }
 
     public function insert($query) {
-      $result = $this->connection->query($query);
+      $result = $this->connection->prepare($query);
+
+      $result->execute();
 
       if (!$result) {
         throw new Exception($this->connection->error);
@@ -46,13 +52,15 @@
     }
 
     public function selectOne($query) {
-      $result = $this->connection->query($query);
+      $result = $this->connection->prepare($query);
+
+      $result->execute();
 
       if (!$result) {
         throw new Exception($this->connection->error);
       }
 
-      $row = $result->fetch_assoc();
+      $row = $result->fetch(PDO::FETCH_ASSOC);
 
       if (!$row) {
         throw new Exception();
@@ -62,7 +70,9 @@
     }
 
     public function select($query) {
-      $result = $this->connection->query($query);
+      $result = $this->connection->prepare($query);
+
+      $result->execute();
 
       if (!$result) {
         throw new Exception($this->connection->error);
@@ -70,7 +80,7 @@
 
       $resultArray = [];
 
-      while($row = $result->fetch_assoc()) {
+      while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $resultArray[] = $row;
       }
 

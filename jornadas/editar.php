@@ -12,7 +12,7 @@
       throw new Exception();
     }
   } catch (Exception $e) {
-    include './helpers/auth.php';
+    include '../helpers/auth.php';
 
     Auth::verifyRol();
   }

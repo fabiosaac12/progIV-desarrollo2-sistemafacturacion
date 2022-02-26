@@ -12,7 +12,7 @@
       throw new Exception();
     }
   } catch (Exception $e) {
-    include './helpers/auth.php';
+    include '../helpers/auth.php';
 
     Auth::verifyRol();
   }
@@ -47,7 +47,7 @@
           throw new Exception();
         }
 
-        if ($user['id'] == $id) {
+        if ($user['id'] == $_SESSION['id']) {
           throw new Exception();
         }
 

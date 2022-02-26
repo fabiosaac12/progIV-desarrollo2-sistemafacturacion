@@ -1,0 +1,11 @@
+superadmin
+  cedula = 29655801
+  contrasena = 1231
+
+admin
+  cedula = 29655049
+  contrasena = 1231
+
+cajero
+  cedula = 29655555
+  contrasena = 1231

@@ -1,0 +1,42 @@
+section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  flex-grow: 1;
+  max-width: 500px;
+  background-color: #f2f5ff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  section {
+    flex-direction: column;
+  }
+
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.buttonRow {
+  margin-top: 30px;
+}

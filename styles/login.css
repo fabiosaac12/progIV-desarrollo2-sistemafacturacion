@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 500px
+}
+
+.error {
+  margin-bottom: 20px;
+  color: red;
+}

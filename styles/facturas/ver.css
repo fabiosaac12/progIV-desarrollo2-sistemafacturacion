@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.factura {
+  width: 500px;
+  background-color: #f2f5ff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.nombreCajero {
+  margin-bottom: 40px;
+}
+
+.operadorBarco {
+  margin-bottom: 40px;
+}
+
+.total {
+  margin-top: 40px;
+}
